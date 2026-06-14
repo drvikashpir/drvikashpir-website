@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Interventional Radiology Guide</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">IR Guide</div>
+    <nav>
+      <a href="#about">About IR</a>
+      <a href="#explore">Explore</a>
+      <a href="#disclaimer">Disclaimer</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>
+          Welcome to Interventional Radiology
+        </h1>
+
+        <p class="tagline">
+          Advanced, image-guided medicine driven by biology, physics, precision, and innovation.
+        </p>
+
+        <p class="intro">
+          Select a body organ to learn how Interventional Radiology may help with bleeding,
+          blood clots, or tumors using minimally invasive image-guided procedures.
+        </p>
+
+        <a href="#explore" class="primary-button">Start Exploring</a>
+      </div>
+
+      <div class="hero-3d">
+        <div class="animation-placeholder">
+          3D Animation Area
+          <br />
+          <span>You can add Spline or 3D body animation here later</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="info-section">
+      <h2>What is Interventional Radiology?</h2>
+      <p>
+        Interventional Radiology, or IR, is a medical specialty that uses imaging guidance
+        such as ultrasound, CT, X-ray, or MRI to perform minimally invasive procedures.
+        Many IR treatments are done through tiny skin openings using needles, wires, and catheters.
+      </p>
+    </section>
+
+    <section id="explore" class="explore-section">
+      <h2>Choose a Body Organ</h2>
+      <p class="section-subtitle">
+        Select one organ/system first.
+      </p>
+
+      <div class="button-grid" id="organButtons">
+        <button onclick="selectOrgan('brain')">Brain / Head & Neck</button>
+        <button onclick="selectOrgan('lungs')">Lungs</button>
+        <button onclick="selectOrgan('liver')">Liver</button>
+        <button onclick="selectOrgan('kidney')">Kidney</button>
+        <button onclick="selectOrgan('uterus')">Uterus / Pelvis</button>
+        <button onclick="selectOrgan('legs')">Leg Veins / Arteries</button>
+        <button onclick="selectOrgan('abdomen')">GI Tract / Abdomen</button>
+        <button onclick="selectOrgan('bones')">Bones / Spine</button>
+      </div>
+
+      <div id="conditionSection" class="condition-section hidden">
+        <h2>What do you want to learn about?</h2>
+        <p class="section-subtitle">
+          Choose only one option.
+        </p>
+
+        <div class="button-grid condition-buttons">
+          <button onclick="selectCondition('bleeding')">Bleeding</button>
+          <button onclick="selectCondition('clot')">Blood Clot</button>
+          <button onclick="selectCondition('tumor')">Tumor</button>
+        </div>
+      </div>
+
+      <div id="resultsSection" class="results-section hidden">
+        <h2 id="resultsTitle">IR Procedures</h2>
+        <div id="resultsContainer"></div>
+      </div>
+    </section>
+
+    <section id="disclaimer" class="disclaimer">
+      <h2>Medical Disclaimer</h2>
+      <p>
+        This website is for education only and does not replace medical advice.
+        If you have sudden severe bleeding, chest pain, stroke symptoms, severe shortness of breath,
+        or any medical emergency, call emergency services immediately.
+      </p>
+      <p>
+        Treatment options depend on patient condition, imaging findings, laboratory results,
+        hospital resources, and physician evaluation.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 IR Guide. Educational information only.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
