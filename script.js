@@ -367,3 +367,46 @@ function highlightSelectedButton(containerId, selectedValue) {
     }
   });
 }
+function loadDiseaseGuide() {
+  const container = document.getElementById("diseaseGuideContainer");
+
+  if (!container) {
+    alert("Disease guide container not found.");
+    return;
+  }
+
+  container.innerHTML = "<p>Loading disease guide...</p>";
+
+  fetch("assets/disease-guide.md")
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Disease guide file not found.");
+      }
+
+      return response.text();
+    })
+    .then(function (markdownText) {
+      container.innerHTML = marked.parse(markdownText);
+
+      document.getElementById("disease-explore").scrollIntoView({
+        behavior: "smooth"
+      });
+    })
+    .catch(function (error) {
+      container.innerHTML = `
+        <h3>Disease guide could not be loaded</h3>
+
+        <p>
+          Please make sure your Markdown file is uploaded at:
+        </p>
+
+        <pre>assets/disease-guide.md</pre>
+
+        <p>
+          Also check the file name carefully. GitHub file names are case-sensitive.
+        </p>
+      `;
+
+      console.error(error);
+    });
+}
