@@ -19,6 +19,9 @@
     type="module"
     src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js">
   </script>
+
+  <!-- Markdown viewer for disease-based exploration -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
@@ -30,7 +33,7 @@
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About IR</a>
-      <a href="#explore">Explore</a>
+      <a href="#choose-path">Explore</a>
       <a href="#disclaimer">Disclaimer</a>
     </nav>
   </header>
@@ -68,7 +71,7 @@
         </p>
 
         <div class="hero-actions">
-          <a href="#explore" class="primary-button">Start Exploring</a>
+          <a href="#choose-path" class="primary-button">Start Exploring</a>
           <a href="#about" class="secondary-button">What is IR?</a>
         </div>
 
@@ -179,6 +182,49 @@
 
     </section>
 
+    <!-- Main Exploration Choice -->
+    <section id="choose-path" class="info-section">
+
+      <h2>How would you like to explore Interventional Radiology?</h2>
+
+      <p>
+        This website is designed to help the public understand what
+        Interventional Radiology can offer for different parts of the body and
+        for specific disease conditions.
+      </p>
+
+      <div class="quick-cards">
+
+        <div class="procedure-card explore-choice-card">
+          <h3>Explore by Organ</h3>
+
+          <p>
+            Choose a body organ or system, then learn how Interventional Radiology
+            may help with bleeding, blood clots, or tumors.
+          </p>
+
+          <a href="#explore" class="primary-button">
+            Explore by Organ
+          </a>
+        </div>
+
+        <div class="procedure-card explore-choice-card">
+          <h3>Explore by Disease</h3>
+
+          <p>
+            Choose this option to read disease-specific information about how
+            Interventional Radiology may help in selected medical conditions.
+          </p>
+
+          <a href="#disease-explore" class="secondary-button" onclick="loadDiseaseGuide()">
+            Explore by Disease
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
     <!-- Quick Intro Section -->
     <section class="info-section">
 
@@ -246,10 +292,10 @@
 
     </section>
 
-    <!-- Explore Section -->
+    <!-- Organ-Based Explore Section -->
     <section id="explore" class="explore-section">
 
-      <h2>Choose a Body Organ or System</h2>
+      <h2>Explore by Organ</h2>
 
       <p class="section-subtitle">
         Select one organ/system first. After that, choose whether you want to learn
@@ -336,6 +382,38 @@
 
         <div id="resultsContainer"></div>
 
+      </div>
+
+    </section>
+
+    <!-- Disease-Based Explore Section -->
+    <section id="disease-explore" class="explore-section">
+
+      <h2>Explore by Disease</h2>
+
+      <p class="section-subtitle">
+        This section provides disease-specific information about how
+        Interventional Radiology may help in selected conditions.
+      </p>
+
+      <div class="disease-actions">
+        <button class="primary-button button-reset" onclick="loadDiseaseGuide()">
+          Load Disease Guide
+        </button>
+      </div>
+
+      <div id="diseaseGuideContainer" class="markdown-container">
+        <p>
+          Click <strong>Load Disease Guide</strong> to view disease-specific
+          Interventional Radiology information.
+        </p>
+
+        <p>
+          If the disease guide does not load, please check that your Markdown file
+          is uploaded at:
+        </p>
+
+        <pre>assets/disease-guide.md</pre>
       </div>
 
     </section>
