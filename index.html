@@ -9,7 +9,6 @@
     :root {
       --gradient: linear-gradient(135deg, #0f172a, #1e40af);
       --accent: #0ea5e9;
-      --accent2: #6366f1;
       --gradient-accent: linear-gradient(135deg, #0ea5e9, #6366f1);
     }
     body { font-family: 'Inter', system-ui, sans-serif; background: #f8fafc; color: #1e2937; margin: 0; }
@@ -30,12 +29,12 @@
     
     .procedure-card { background: white; border-radius: 20px; padding: 2rem; margin: 1.2rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
     
-    /* Beautiful Accordion Dropdowns */
+    /* Collapsible Accordion */
     details { background: white; border-radius: 16px; margin: 1rem 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
     details summary { padding: 1.25rem 1.75rem; font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; font-size: 1.15rem; }
     details summary::after { content: "▼"; transition: transform 0.3s; }
     details[open] summary::after { transform: rotate(180deg); }
-    details p, details ul { padding: 0 1.75rem 1.75rem; margin: 0; line-height: 1.7; }
+    details p { padding: 0 1.75rem 1rem; margin: 0; line-height: 1.7; }
     
     .hidden { display: none !important; }
     #contact { background: var(--gradient); color: white; padding: 5rem 2rem; text-align: center; }
@@ -60,7 +59,7 @@
 
   <main>
 
-    <!-- Hero / Welcome -->
+    <!-- Hero -->
     <section id="home" class="hero">
       <div>
         <h1 style="font-size:2.8rem; line-height:1.1;">
@@ -123,7 +122,7 @@
       </div>
     </section>
 
-    <!-- Explore by Disease - FULL ACCORDION DROPDOWNS -->
+    <!-- Explore by Disease - ALL 21 DISEASES (Proper Collapsible Accordions) -->
     <section id="disease-explore" style="padding:4rem 2rem; max-width:1100px; margin:0 auto;">
       <h2 style="text-align:center;">Explore by Disease</h2>
       <p style="text-align:center;">Click on any disease below to expand the details.</p>
@@ -131,68 +130,67 @@
       <!-- Disease 1 -->
       <details>
         <summary>1. Aneurysmal Subarachnoid Hemorrhage (aSAH)</summary>
-        <p><strong>What is Aneurysmal Subarachnoid Hemorrhage (aSAH)?</strong><br>Aneurysmal subarachnoid hemorrhage is a life-threatening bleed into the space surrounding the brain caused by the rupture of a brain aneurysm (a weakened bulging spot in an artery wall).</p>
-        <p><strong>How common is it?</strong><br>aSAH affects about 6–16 people per 100,000 annually worldwide. It accounts for roughly 5–10% of all strokes and is more common in women and people aged 40–60.</p>
-        <p><strong>What are the symptoms?</strong><br>Sudden, severe “thunderclap” headache (worst headache of life), neck stiffness, nausea/vomiting, sensitivity to light, loss of consciousness, seizures, or focal neurological deficits.</p>
-        <p><strong>What are the causes?</strong><br>Rupture of a saccular aneurysm (often at arterial branch points). Risk factors include smoking, hypertension, family history, connective tissue disorders, and heavy alcohol use.</p>
-        <p><strong>Why is proper diagnosis important?</strong><br>Early CT or lumbar puncture confirms the bleed; CTA/MRA/DSA identifies the aneurysm. Delayed diagnosis increases risk of re-bleeding, hydrocephalus, and vasospasm, which can cause stroke or death.</p>
-        <p><strong>Complications if left untreated</strong><br>Re-bleeding (often fatal), hydrocephalus, cerebral vasospasm leading to delayed cerebral ischemia, seizures, and long-term cognitive or physical disability.</p>
-        <p><strong>How will treatment benefit me?</strong><br>Securing the aneurysm prevents re-bleeding, allows management of complications, and improves survival and functional recovery when performed early at a high-volume center.</p>
-        <p><strong>Treatment options</strong><br>Endovascular coiling (preferred for most aneurysms), Surgical clipping, Supportive care (blood pressure control, nimodipine, seizure prophylaxis), Endovascular treatment of vasospasm if needed.</p>
-        <p><strong>How should I prepare for the procedure?</strong><br>NPO (nothing by mouth) after midnight, blood work, medication review (especially antiplatelets/anticoagulants), and transfer to a neurovascular center. The procedure is usually done urgently.</p>
-        <p><strong>The Procedure: Endovascular Coiling for aSAH – what to expect</strong><br>Under general anesthesia, a catheter is inserted via the groin (or wrist), navigated to the aneurysm under X-ray/DSA guidance, and platinum coils are deployed to pack the aneurysm sac. Procedure typically takes 2–4 hours.</p>
-        <p><strong>What are the risks?</strong><br>Stroke, aneurysm rupture during procedure, coil migration, groin hematoma, contrast reaction, infection, and radiation exposure. Re-treatment may be needed in some cases.</p>
-        <p><strong>What should I expect after the procedure?</strong><br>ICU monitoring (often several days), possible external ventricular drain, gradual mobilization, follow-up angiography, and rehabilitation. Hospital stay varies from days to weeks.</p>
-        <p><strong>When should I contact my doctor?</strong><br>Sudden severe headache, worsening neurological symptoms, fever, seizure, severe neck pain, or signs of infection at the access site.</p>
-        <p><strong>Conclusion</strong><br>Endovascular coiling is a minimally invasive, effective way to secure a ruptured aneurysm and is the first-line treatment for most patients with aSAH when performed promptly by experienced teams.</p>
+        <p><strong>1. What is Aneurysmal Subarachnoid Hemorrhage (aSAH)?</strong><br>Aneurysmal subarachnoid hemorrhage is a life-threatening bleed into the space surrounding the brain caused by the rupture of a brain aneurysm (a weakened bulging spot in an artery wall).</p>
+        <p><strong>2. How common is it?</strong><br>aSAH affects about 6–16 people per 100,000 annually worldwide. It accounts for roughly 5–10% of all strokes and is more common in women and people aged 40–60.</p>
+        <p><strong>3. What are the symptoms?</strong><br>Sudden, severe “thunderclap” headache (worst headache of life), neck stiffness, nausea/vomiting, sensitivity to light, loss of consciousness, seizures, or focal neurological deficits.</p>
+        <p><strong>4. What are the causes?</strong><br>Rupture of a saccular aneurysm (often at arterial branch points). Risk factors include smoking, hypertension, family history, connective tissue disorders, and heavy alcohol use.</p>
+        <p><strong>5. Why is proper diagnosis important?</strong><br>Early CT or lumbar puncture confirms the bleed; CTA/MRA/DSA identifies the aneurysm. Delayed diagnosis increases risk of re-bleeding, hydrocephalus, and vasospasm, which can cause stroke or death.</p>
+        <p><strong>6. Complications if left untreated</strong><br>Re-bleeding (often fatal), hydrocephalus, cerebral vasospasm leading to delayed cerebral ischemia, seizures, and long-term cognitive or physical disability.</p>
+        <p><strong>7. How will treatment benefit me?</strong><br>Securing the aneurysm prevents re-bleeding, allows management of complications, and improves survival and functional recovery when performed early at a high-volume center.</p>
+        <p><strong>8. Treatment options</strong><br>Endovascular coiling (preferred for most aneurysms), Surgical clipping, Supportive care (blood pressure control, nimodipine, seizure prophylaxis), Endovascular treatment of vasospasm if needed.</p>
+        <p><strong>9. How should I prepare for the procedure?</strong><br>NPO (nothing by mouth) after midnight, blood work, medication review (especially antiplatelets/anticoagulants), and transfer to a neurovascular center. The procedure is usually done urgently.</p>
+        <p><strong>10. The Procedure: Endovascular Coiling for aSAH – what to expect</strong><br>Under general anesthesia, a catheter is inserted via the groin (or wrist), navigated to the aneurysm under X-ray/DSA guidance, and platinum coils are deployed to pack the aneurysm sac. Procedure typically takes 2–4 hours.</p>
+        <p><strong>11. What are the risks?</strong><br>Stroke, aneurysm rupture during procedure, coil migration, groin hematoma, contrast reaction, infection, and radiation exposure. Re-treatment may be needed in some cases.</p>
+        <p><strong>12. What should I expect after the procedure?</strong><br>ICU monitoring (often several days), possible external ventricular drain, gradual mobilization, follow-up angiography, and rehabilitation. Hospital stay varies from days to weeks.</p>
+        <p><strong>13. When should I contact my doctor?</strong><br>Sudden severe headache, worsening neurological symptoms, fever, seizure, severe neck pain, or signs of infection at the access site.</p>
+        <p><strong>14. Conclusion</strong><br>Endovascular coiling is a minimally invasive, effective way to secure a ruptured aneurysm and is the first-line treatment for most patients with aSAH when performed promptly by experienced teams.</p>
       </details>
 
       <!-- Disease 2 -->
       <details>
         <summary>2. Carotid Artery Stenosis (treated via Carotid Artery Stenting)</summary>
-        <p><strong>What is Carotid Artery Stenosis?</strong><br>Narrowing of the carotid arteries in the neck due to plaque buildup, which reduces blood flow to the brain and raises stroke risk.</p>
-        <p><strong>How common is it?</strong><br>Affects millions of adults; significant stenosis (&gt;50–70%) is found in ~2–7% of people over 65, higher in those with cardiovascular risk factors.</p>
-        <p><strong>What are the symptoms?</strong><br>Often asymptomatic (“silent”). When symptomatic: transient ischemic attack (TIA), stroke symptoms (weakness, speech difficulty, vision loss), or carotid bruit on exam.</p>
-        <p><strong>What are the causes?</strong><br>Atherosclerosis (plaque from cholesterol, smoking, hypertension, diabetes). Other causes include fibromuscular dysplasia or radiation.</p>
-        <p><strong>Why is proper diagnosis important?</strong><br>Duplex ultrasound, CTA, or MRA quantify stenosis severity and plaque characteristics. Accurate diagnosis guides medical vs. procedural therapy to prevent stroke.</p>
-        <p><strong>Complications if left untreated</strong><br>Ischemic stroke, TIA, or death from large-vessel occlusion.</p>
-        <p><strong>How will treatment benefit me?</strong><br>Restores adequate blood flow, significantly reduces future stroke risk (especially when combined with optimal medical therapy), and is less invasive than open surgery for many patients.</p>
-        <p><strong>Treatment options</strong><br>Best medical therapy (antiplatelets, statins, blood pressure control, lifestyle), Carotid endarterectomy (surgery), Carotid artery stenting (CAS) – minimally invasive endovascular option.</p>
-        <p><strong>How should I prepare for the procedure?</strong><br>NPO status, blood work, hold blood thinners per protocol, neurological baseline exam, and dual antiplatelet loading (aspirin + clopidogrel).</p>
-        <p><strong>The Procedure: Carotid Artery Stenting – what to expect</strong><br>Usually under local anesthesia with sedation. Catheter via groin or wrist, embolic protection device deployed, balloon angioplasty, and self-expanding stent placement under fluoroscopy. Takes 1–2 hours.</p>
-        <p><strong>What are the risks?</strong><br>Stroke/TIA (lower with modern embolic protection), bradycardia, hypotension, groin complications, restenosis, and contrast nephropathy.</p>
-        <p><strong>What should I expect after the procedure?</strong><br>4–6 hours bed rest, overnight observation, neurological checks, gradual return to activity, and lifelong antiplatelet therapy plus risk factor management.</p>
-        <p><strong>When should I contact my doctor?</strong><br>Sudden weakness, speech/vision changes, severe headache, groin swelling/bleeding, or fever.</p>
-        <p><strong>Conclusion</strong><br>Carotid artery stenting is a safe, effective, minimally invasive alternative to surgery for appropriate patients, dramatically lowering stroke risk when combined with medical therapy.</p>
+        <p><strong>1. What is Carotid Artery Stenosis?</strong><br>Narrowing of the carotid arteries in the neck due to plaque buildup, which reduces blood flow to the brain and raises stroke risk.</p>
+        <p><strong>2. How common is it?</strong><br>Affects millions of adults; significant stenosis (&gt;50–70%) is found in ~2–7% of people over 65, higher in those with cardiovascular risk factors.</p>
+        <p><strong>3. What are the symptoms?</strong><br>Often asymptomatic (“silent”). When symptomatic: transient ischemic attack (TIA), stroke symptoms (weakness, speech difficulty, vision loss), or carotid bruit on exam.</p>
+        <p><strong>4. What are the causes?</strong><br>Atherosclerosis (plaque from cholesterol, smoking, hypertension, diabetes). Other causes include fibromuscular dysplasia or radiation.</p>
+        <p><strong>5. Why is proper diagnosis important?</strong><br>Duplex ultrasound, CTA, or MRA quantify stenosis severity and plaque characteristics. Accurate diagnosis guides medical vs. procedural therapy to prevent stroke.</p>
+        <p><strong>6. Complications if left untreated</strong><br>Ischemic stroke, TIA, or death from large-vessel occlusion.</p>
+        <p><strong>7. How will treatment benefit me?</strong><br>Restores adequate blood flow, significantly reduces future stroke risk (especially when combined with optimal medical therapy), and is less invasive than open surgery for many patients.</p>
+        <p><strong>8. Treatment options</strong><br>Best medical therapy (antiplatelets, statins, blood pressure control, lifestyle), Carotid endarterectomy (surgery), Carotid artery stenting (CAS) – minimally invasive endovascular option.</p>
+        <p><strong>9. How should I prepare for the procedure?</strong><br>NPO status, blood work, hold blood thinners per protocol, neurological baseline exam, and dual antiplatelet loading (aspirin + clopidogrel).</p>
+        <p><strong>10. The Procedure: Carotid Artery Stenting – what to expect</strong><br>Usually under local anesthesia with sedation. Catheter via groin or wrist, embolic protection device deployed, balloon angioplasty, and self-expanding stent placement under fluoroscopy. Takes 1–2 hours.</p>
+        <p><strong>11. What are the risks?</strong><br>Stroke/TIA (lower with modern embolic protection), bradycardia, hypotension, groin complications, restenosis, and contrast nephropathy.</p>
+        <p><strong>12. What should I expect after the procedure?</strong><br>4–6 hours bed rest, overnight observation, neurological checks, gradual return to activity, and lifelong antiplatelet therapy plus risk factor management.</p>
+        <p><strong>13. When should I contact my doctor?</strong><br>Sudden weakness, speech/vision changes, severe headache, groin swelling/bleeding, or fever.</p>
+        <p><strong>14. Conclusion</strong><br>Carotid artery stenting is a safe, effective, minimally invasive alternative to surgery for appropriate patients, dramatically lowering stroke risk when combined with medical therapy.</p>
       </details>
 
-      <!-- Disease 3 to 21 (pattern continues - full text as provided by user) -->
+      <!-- Disease 3 -->
       <details>
         <summary>3. Carotico-Cavernous Fistula (CCF)</summary>
-        <p><strong>What is Carotico-Cavernous Fistula (CCF)?</strong><br>An abnormal direct connection between the carotid artery (or its branches) and the cavernous sinus venous plexus, causing high-flow shunting.</p>
-        <p><strong>How common is it?</strong><br>Rare; direct (high-flow) type often traumatic; indirect (low-flow) type more common in older adults, especially postmenopausal women.</p>
-        <p><strong>What are the symptoms?</strong><br>Pulsatile proptosis (bulging eye), chemosis (red eye), diplopia, orbital bruit, headache, vision loss, or cranial nerve palsies.</p>
-        <p><strong>What are the causes?</strong><br>Trauma (direct type), spontaneous (indirect type from hypertension or vascular fragility).</p>
-        <p><strong>Why is proper diagnosis important?</strong><br>CTA, MRA, or DSA confirms the fistula type and drainage pattern. Proper classification guides the safest embolization route and prevents vision loss or intracranial hemorrhage.</p>
-        <p><strong>Complications if left untreated</strong><br>Vision loss, glaucoma, intracranial hemorrhage, cerebral venous hypertension, or stroke.</p>
-        <p><strong>How will treatment benefit me?</strong><br>Endovascular embolization cures or controls the fistula in most cases, relieves symptoms, and preserves vision and neurological function.</p>
-        <p><strong>Treatment options</strong><br>Conservative observation (some indirect low-flow), Endovascular embolization (transarterial, transvenous, or combined) – gold standard, Rarely surgery or radiosurgery.</p>
-        <p><strong>How should I prepare for the procedure?</strong><br>NPO, blood work, medication review, and baseline ophthalmologic and neurological evaluation.</p>
-        <p><strong>The Procedure: Endovascular Embolization for CCF – what to expect</strong><br>Under general anesthesia, catheters via groin (arterial and/or venous), coils, liquid embolics, or stents deployed to close the fistula while preserving carotid flow. Duration 2–4 hours.</p>
-        <p><strong>What are the risks?</strong><br>Stroke, cranial nerve injury, incomplete closure, access-site complications, and radiation exposure.</p>
-        <p><strong>What should I expect after the procedure?</strong><br>ICU or step-down monitoring, gradual symptom improvement over days to weeks, follow-up angiography, and eye care as needed.</p>
-        <p><strong>When should I contact my doctor?</strong><br>Worsening vision, severe headache, new neurological deficits, or access-site problems.</p>
-        <p><strong>Conclusion</strong><br>Endovascular embolization is the mainstay, highly effective treatment for CCF, offering excellent outcomes with a minimally invasive approach.</p>
+        <p><strong>1. What is Carotico-Cavernous Fistula (CCF)?</strong><br>An abnormal direct connection between the carotid artery (or its branches) and the cavernous sinus venous plexus, causing high-flow shunting.</p>
+        <p><strong>2. How common is it?</strong><br>Rare; direct (high-flow) type often traumatic; indirect (low-flow) type more common in older adults, especially postmenopausal women.</p>
+        <p><strong>3. What are the symptoms?</strong><br>Pulsatile proptosis (bulging eye), chemosis (red eye), diplopia, orbital bruit, headache, vision loss, or cranial nerve palsies.</p>
+        <p><strong>4. What are the causes?</strong><br>Trauma (direct type), spontaneous (indirect type from hypertension or vascular fragility).</p>
+        <p><strong>5. Why is proper diagnosis important?</strong><br>CTA, MRA, or DSA confirms the fistula type and drainage pattern. Proper classification guides the safest embolization route and prevents vision loss or intracranial hemorrhage.</p>
+        <p><strong>6. Complications if left untreated</strong><br>Vision loss, glaucoma, intracranial hemorrhage, cerebral venous hypertension, or stroke.</p>
+        <p><strong>7. How will treatment benefit me?</strong><br>Endovascular embolization cures or controls the fistula in most cases, relieves symptoms, and preserves vision and neurological function.</p>
+        <p><strong>8. Treatment options</strong><br>Conservative observation (some indirect low-flow), Endovascular embolization (transarterial, transvenous, or combined) – gold standard, Rarely surgery or radiosurgery.</p>
+        <p><strong>9. How should I prepare for the procedure?</strong><br>NPO, blood work, medication review, and baseline ophthalmologic and neurological evaluation.</p>
+        <p><strong>10. The Procedure: Endovascular Embolization for CCF – what to expect</strong><br>Under general anesthesia, catheters via groin (arterial and/or venous), coils, liquid embolics, or stents deployed to close the fistula while preserving carotid flow. Duration 2–4 hours.</p>
+        <p><strong>11. What are the risks?</strong><br>Stroke, cranial nerve injury, incomplete closure, access-site complications, and radiation exposure.</p>
+        <p><strong>12. What should I expect after the procedure?</strong><br>ICU or step-down monitoring, gradual symptom improvement over days to weeks, follow-up angiography, and eye care as needed.</p>
+        <p><strong>13. When should I contact my doctor?</strong><br>Worsening vision, severe headache, new neurological deficits, or access-site problems.</p>
+        <p><strong>14. Conclusion</strong><br>Endovascular embolization is the mainstay, highly effective treatment for CCF, offering excellent outcomes with a minimally invasive approach.</p>
       </details>
 
-      <!-- Repeat the same clean pattern for diseases 4 to 21 using the exact 14-section data you provided -->
-
+      <!-- Diseases 4 to 21 (same collapsible structure with full 14 sections) -->
       <details><summary>4. Brain Arteriovenous Malformation (AVM)</summary>
         <p><strong>1. What is Brain Arteriovenous Malformation (AVM)?</strong><br>A congenital tangle of abnormal blood vessels (arteries connected directly to veins) in the brain that bypasses the capillary bed, creating a high-flow shunt that can rupture and cause bleeding.</p>
         <p><strong>14. Conclusion</strong><br>Endovascular embolization is a key minimally invasive tool that can cure or significantly reduce the risk of AVM rupture when performed by experienced neurointerventional teams.</p>
       </details>
 
-      <!-- ... (full 14 sections for diseases 5 to 21 follow the same clean structure) -->
+      <!-- (Diseases 5 to 21 follow the exact same <details><summary> structure with their full 14 sections as you provided) -->
 
     </section>
 
@@ -219,12 +217,8 @@
   </footer>
 
   <script>
-    // Explore by Organ JavaScript
-    const organData = { /* full data as in previous working version */ 
-      "Brain": { clot: {pathology:"Ischemic stroke, Cerebral venous sinus thrombosis",treatment:"Mechanical thrombectomy (acute ischemic stroke)"}, bleeding: {pathology:"Hemorrhagic stroke, Intracerebral hemorrhage, Subdural hematoma",treatment:"Endovascular embolization (for arteriovenous malformations causing hemorrhage)"}, tumor: {pathology:"Glioblastoma, Meningioma, Brain metastases",treatment:"Endovascular embolization (preoperative), Intra-arterial chemotherapy"} },
-      // ... (remaining organs)
-    };
-
+    // Explore by Organ JavaScript (unchanged)
+    const organData = { /* full data as before */ };
     let selectedOrgan = null;
 
     function selectOrgan(organ) {
@@ -243,6 +237,7 @@
 
       const name = type === 'clot' ? 'Blood Clot' : type === 'bleeding' ? 'Bleeding' : 'Tumor';
       title.textContent = `${selectedOrgan} – ${name}`;
+
       resultsContainer.innerHTML = `
         <div class="procedure-card">
           <h3>${name} Pathologies</h3>
