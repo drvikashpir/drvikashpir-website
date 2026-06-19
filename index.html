@@ -10,10 +10,10 @@
   <style>
     :root {
       --primary: #0f172a;
-      --accent: #14b8a6;
+      --accent: #0ea5e9;
       --accent2: #6366f1;
-      --gradient: linear-gradient(135deg, #0f172a, #1e3a8a);
-      --gradient-accent: linear-gradient(135deg, #14b8a6, #6366f1);
+      --gradient: linear-gradient(135deg, #0f172a, #1e40af);
+      --gradient-accent: linear-gradient(135deg, #0ea5e9, #6366f1);
     }
     body { font-family: 'Inter', system-ui, sans-serif; background: #f8fafc; color: #1e2937; margin: 0; }
     .site-header { background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
@@ -24,21 +24,17 @@
     .hero { background: var(--gradient); color: white; padding: 5rem 2rem; display: flex; align-items: center; gap: 3rem; min-height: 100vh; }
     .hero-text h1 { font-size: 3.3rem; line-height: 1.1; margin-bottom: 1rem; }
     
-    .primary-button { background: var(--gradient-accent); color: white; padding: 16px 36px; border: none; border-radius: 50px; font-weight: 700; font-size: 1.05rem; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; box-shadow: 0 10px 25px rgba(20, 184, 166, 0.35); }
-    .primary-button:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(20, 184, 166, 0.5); }
+    .primary-button { background: var(--gradient-accent); color: white; padding: 16px 36px; border: none; border-radius: 50px; font-weight: 700; font-size: 1.05rem; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; box-shadow: 0 10px 25px rgba(14, 165, 233, 0.35); }
+    .primary-button:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(14, 165, 233, 0.5); }
     .secondary-button { background: transparent; color: white; padding: 16px 36px; border: 2px solid white; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; text-decoration: none; display: inline-block; }
     .secondary-button:hover { background: white; color: #0f172a; }
     
     .button-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
-    .button-grid button { background: var(--gradient-accent); color: white; border: none; padding: 14px 24px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(20, 184, 166, 0.3); }
+    .button-grid button { background: var(--gradient-accent); color: white; border: none; padding: 14px 24px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(14, 165, 233, 0.3); }
     .button-grid button:hover { transform: translateY(-3px) scale(1.03); }
-    
-    .condition-buttons button { background: linear-gradient(135deg, #6366f1, #14b8a6); }
     
     .procedure-card { background: white; border-radius: 20px; padding: 2rem; margin: 1.2rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s ease; border: 1px solid #e2e8f0; }
     .procedure-card:hover { transform: translateY(-6px); }
-    
-    .info-card { background: #f1e7ff; padding: 1.5rem; border-radius: 16px; margin: 1rem 0; border-left: 6px solid #6366f1; }
     
     .hidden { display: none !important; }
     
@@ -46,12 +42,12 @@
     .contact-card { max-width: 520px; margin: 2rem auto; background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 24px; backdrop-filter: blur(10px); }
     .funny-note { font-style: italic; margin-top: 1.5rem; opacity: 0.9; }
     
-    /* Accordion styles for Disease Guide */
+    /* Beautiful Accordion for Disease Guide */
     details { background: white; border-radius: 16px; margin: 1rem 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
-    details summary { padding: 1.25rem 1.75rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; }
-    details summary::after { content: "▼"; font-size: 0.9rem; transition: transform 0.3s; }
+    details summary { padding: 1.25rem 1.75rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; font-size: 1.1rem; }
+    details summary::after { content: "▼"; font-size: 0.9rem; transition: transform 0.3s ease; }
     details[open] summary::after { transform: rotate(180deg); }
-    details p, details ul { padding: 0 1.75rem 1.75rem; margin: 0; }
+    details p, details ul { padding: 0 1.75rem 1.75rem; margin: 0; line-height: 1.7; }
   </style>
 </head>
 <body>
@@ -61,7 +57,7 @@
     <div class="logo">IR for the Public</div>
     <nav>
       <a href="#home">Home</a>
-      <a href="#about">About IR</a>
+      <a href="#about">What is IR?</a>
       <a href="#explore">Explore by Organ</a>
       <a href="#disease-explore">Explore by Disease</a>
       <a href="#contact">Contact</a>
@@ -79,8 +75,19 @@
         <p>Discover how IR uses advanced imaging to treat bleeding, blood clots, and tumors through tiny openings.</p>
         <div class="hero-actions" style="margin-top:2rem;">
           <a href="#explore" class="primary-button">Explore by Organ</a>
-          <a href="#disease-explore" class="secondary-button">Explore by Disease</a>
+          <a href="#about" class="secondary-button">What is IR?</a>
         </div>
+      </div>
+    </section>
+
+    <!-- What is IR Section -->
+    <section id="about" class="info-section" style="padding:4rem 2rem; max-width:900px; margin:0 auto;">
+      <h2>What is Interventional Radiology?</h2>
+      <div style="background:white; padding:2.5rem; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.08);">
+        <p>Imagine if your doctor could fix a blocked artery, treat a tumor, or stop internal bleeding through a puncture hole smaller than a grain of rice—no major surgery required. That is Interventional Radiology (IR), the ultimate fusion of high-tech medical imaging and micro-surgical precision.</p>
+        <p>Think of IR specialists as the special-ops snipers of the medical world: using live X-rays and CT scans like a real-time GPS, they navigate microscopic tools directly to the problem area inside your body.</p>
+        <p>It is exactly like clearing a plumbing clog in your house by threading a clever wire through a tiny pipe valve, rather than tearing down the entire wall to change the plumbing.</p>
+        <p>By trading giant scalpels for tiny catheters, IR eliminates large scars, reduces pain dramatically, and gets you back on your feet by dinnertime!</p>
       </div>
     </section>
 
@@ -111,7 +118,7 @@
       <!-- Condition Selection -->
       <div id="conditionSection" class="hidden" style="margin-top:2rem; text-align:center;">
         <h3>What would you like to learn about?</h3>
-        <div class="button-grid condition-buttons" style="max-width:600px; margin:1.5rem auto;">
+        <div class="button-grid condition-buttons" style="max-width:700px; margin:1.5rem auto;">
           <button onclick="selectCondition('clot')">Blood Clot</button>
           <button onclick="selectCondition('bleeding')">Bleeding</button>
           <button onclick="selectCondition('tumor')">Tumor</button>
@@ -131,14 +138,8 @@
     <!-- Explore by Disease (Accordion Dropdowns) -->
     <section id="disease-explore" class="explore-section" style="padding:4rem 2rem; max-width:1100px; margin:0 auto;">
       <h2 style="text-align:center;">Explore by Disease</h2>
-      <p style="text-align:center;">Click on any disease to expand the details.</p>
+      <p style="text-align:center;">Click on any disease below to expand the details.</p>
       <div id="diseaseGuideContainer"></div>
-    </section>
-
-    <!-- About IR -->
-    <section id="about" class="info-section" style="padding:4rem 2rem; max-width:900px; margin:0 auto;">
-      <h2>What is Interventional Radiology?</h2>
-      <p>IR uses real-time imaging (X-ray, CT, Ultrasound) to guide tiny instruments through blood vessels or small skin openings for precise, minimally invasive treatments.</p>
     </section>
 
     <!-- Contact -->
@@ -147,7 +148,7 @@
       <p>Have questions about Interventional Radiology?</p>
       <div class="contact-card">
         <h3>📧 Email Us</h3>
-        <a href="mailto:hidoc@drvikashpir.com" style="font-size:1.5rem; font-weight:700; color:#14b8a6; text-decoration:none;">
+        <a href="mailto:hidoc@drvikashpir.com" style="font-size:1.5rem; font-weight:700; color:#0ea5e9; text-decoration:none;">
           hidoc@drvikashpir.com
         </a>
         <p class="funny-note">We promise we read every email — even the ones with accidental cat photos 🐱</p>
@@ -155,7 +156,7 @@
     </section>
 
     <!-- Disclaimer -->
-    <section id="disclaimer" class="disclaimer" style="padding:3rem 2rem; text-align:center; background:#f1e7ff;">
+    <section id="disclaimer" class="disclaimer" style="padding:3rem 2rem; text-align:center; background:#e0e7ff;">
       <h2>Medical Disclaimer</h2>
       <p>This website is for public education only. It does not provide medical advice.</p>
     </section>
@@ -167,7 +168,7 @@
   </footer>
 
   <script>
-    // ====================== ORGAN DATA (Updated with Tumor) ======================
+    // ====================== FULL ORGAN DATA (including Tumor) ======================
     const organData = {
       "Brain": {
         clot: { pathology: "Ischemic stroke, Cerebral venous sinus thrombosis", treatment: "Mechanical thrombectomy (acute ischemic stroke)" },
@@ -267,11 +268,12 @@
       const resultsContainer = document.getElementById('resultsContainer');
       const title = document.getElementById('resultsTitle');
 
-      title.textContent = `${selectedOrgan} – ${type === 'clot' ? 'Blood Clot' : type === 'bleeding' ? 'Bleeding' : 'Tumor'}`;
+      const conditionName = type === 'clot' ? 'Blood Clot' : type === 'bleeding' ? 'Bleeding' : 'Tumor';
+      title.textContent = `${selectedOrgan} – ${conditionName}`;
 
       resultsContainer.innerHTML = `
         <div class="procedure-card">
-          <h3>${type === 'clot' ? 'Blood Clot Pathologies' : type === 'bleeding' ? 'Bleeding Pathologies' : 'Tumor Pathologies'}</h3>
+          <h3>${conditionName} Pathologies</h3>
           <p>${data.pathology}</p>
         </div>
         <div class="procedure-card">
@@ -289,7 +291,7 @@
       selectedOrgan = null;
     }
 
-    // ====================== DISEASE GUIDE WITH ACCORDION ======================
+    // ====================== DISEASE GUIDE WITH PROPER ACCORDION DROPDOWNS ======================
     function loadDiseaseGuide() {
       const container = document.getElementById('diseaseGuideContainer');
       container.innerHTML = `<p style="text-align:center; color:#64748b;">Loading disease guide...</p>`;
@@ -300,7 +302,7 @@
           const html = marked.parse(markdown);
           container.innerHTML = html;
 
-          // Convert headings into accordions
+          // Convert each disease heading into a beautiful accordion
           const headings = container.querySelectorAll('h2');
           headings.forEach(h2 => {
             const details = document.createElement('details');
@@ -323,8 +325,14 @@
         });
     }
 
-    // Auto-load disease guide on page load (optional)
-    // window.onload = () => loadDiseaseGuide();
+    // Optional: Auto load disease guide when user clicks the nav link
+    document.querySelector('a[href="#disease-explore"]').addEventListener('click', () => {
+      setTimeout(() => {
+        if (!document.getElementById('diseaseGuideContainer').innerHTML.trim()) {
+          loadDiseaseGuide();
+        }
+      }, 300);
+    });
   </script>
 </body>
 </html>
