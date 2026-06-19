@@ -1,244 +1,45 @@
-* {
-  box-sizing: border-box;
-}
+/* ====================== NEW STYLES ====================== */
 
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f5f9fc;
-  color: #102033;
-}
-
-.site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 8%;
-  background: #061a2f;
+/* Selected button highlight (for organ & condition buttons) */
+button.selected {
+  background-color: #0066cc;
   color: white;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  border-color: #004999;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.3);
 }
 
-.logo {
-  font-size: 22px;
-  font-weight: bold;
-  color: #4dd8ff;
+/* Loading state for disease guide */
+.loading {
+  padding: 2rem;
+  text-align: center;
+  color: #555;
+  font-style: italic;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-size: 15px;
-}
-
-nav a:hover {
-  color: #4dd8ff;
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  padding: 80px 8%;
-  background: linear-gradient(135deg, #061a2f, #0b3d63);
-  color: white;
-  align-items: center;
-}
-
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-.tagline {
-  font-size: 24px;
-  color: #4dd8ff;
-  line-height: 1.4;
-}
-
-.intro {
-  font-size: 18px;
-  line-height: 1.7;
-  margin-bottom: 30px;
-}
-
-.primary-button {
-  display: inline-block;
-  background: #4dd8ff;
-  color: #061a2f;
-  padding: 14px 24px;
+/* Error message styling */
+.error-message {
+  background-color: #fff3cd;
+  border: 1px solid #ffc107;
+  padding: 1.5rem;
   border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.primary-button:hover {
-  background: white;
-}
-
-.hero-3d {
-  display: flex;
-  justify-content: center;
-}
-
-.animation-placeholder {
-  width: 100%;
-  max-width: 420px;
-  height: 360px;
-  border: 2px dashed #4dd8ff;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #4dd8ff;
-  font-size: 24px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.05);
+  margin: 1rem 0;
 }
 
-.animation-placeholder span {
-  font-size: 14px;
-  color: #d8f7ff;
-  margin-top: 12px;
+/* Back button in results section */
+.back-button {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  display: inline-block;
 }
 
-.info-section,
-.explore-section,
-.disclaimer {
-  padding: 60px 8%;
+/* Optional: nicer styling for the disease guide container after loading */
+.markdown-container h2 {
+  margin-top: 2rem;
+  color: #003366;
 }
 
-.info-section {
-  background: white;
-}
-
-.info-section h2,
-.explore-section h2,
-.disclaimer h2 {
-  font-size: 34px;
-  color: #061a2f;
-}
-
-.info-section p,
-.section-subtitle,
-.disclaimer p {
-  font-size: 18px;
-  line-height: 1.7;
-  max-width: 900px;
-}
-
-.button-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 25px;
-}
-
-.button-grid button {
-  padding: 18px;
-  border: none;
-  background: white;
-  color: #061a2f;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-}
-
-.button-grid button:hover {
-  background: #4dd8ff;
-  transform: translateY(-2px);
-}
-
-.button-grid button.active {
-  background: #061a2f;
-  color: white;
-}
-
-.condition-section {
-  margin-top: 50px;
-  padding: 35px;
-  background: #e8f7fc;
-  border-radius: 16px;
-}
-
-.condition-buttons {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.results-section {
-  margin-top: 50px;
-  padding: 35px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-}
-
-.procedure-card {
-  background: #f5f9fc;
-  border-left: 6px solid #4dd8ff;
-  padding: 22px;
-  margin-bottom: 18px;
-  border-radius: 10px;
-}
-
-.procedure-card h3 {
-  margin-top: 0;
-  color: #061a2f;
-}
-
-.procedure-card p {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.hidden {
-  display: none;
-}
-
-.disclaimer {
-  background: #fff4e5;
-  border-top: 4px solid #ffb84d;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  background: #061a2f;
-  color: white;
-}
-
-/* Mobile view */
-@media (max-width: 800px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 50px 6%;
-  }
-
-  .hero h1 {
-    font-size: 36px;
-  }
-
-  .button-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .condition-buttons {
-    grid-template-columns: 1fr;
-  }
-
-  .site-header {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  nav a {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+.markdown-container h3 {
+  margin-top: 1.5rem;
+  color: #004080;
 }
