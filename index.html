@@ -42,7 +42,7 @@
     .contact-card { max-width: 520px; margin: 2rem auto; background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 24px; backdrop-filter: blur(10px); }
     .funny-note { font-style: italic; margin-top: 1.5rem; opacity: 0.9; }
     
-    /* Beautiful Accordion for Disease Guide */
+    /* Beautiful Accordion Dropdowns */
     details { background: white; border-radius: 16px; margin: 1rem 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
     details summary { padding: 1.25rem 1.75rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; font-size: 1.1rem; }
     details summary::after { content: "▼"; font-size: 0.9rem; transition: transform 0.3s ease; }
@@ -80,7 +80,7 @@
       </div>
     </section>
 
-    <!-- What is IR Section -->
+    <!-- What is IR Section (Correct Text) -->
     <section id="about" class="info-section" style="padding:4rem 2rem; max-width:900px; margin:0 auto;">
       <h2>What is Interventional Radiology?</h2>
       <div style="background:white; padding:2.5rem; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.08);">
@@ -135,10 +135,10 @@
       </div>
     </section>
 
-    <!-- Explore by Disease (Accordion Dropdowns) -->
+    <!-- Explore by Disease - ACCORDION DROPDOWNS -->
     <section id="disease-explore" class="explore-section" style="padding:4rem 2rem; max-width:1100px; margin:0 auto;">
       <h2 style="text-align:center;">Explore by Disease</h2>
-      <p style="text-align:center;">Click on any disease below to expand the details.</p>
+      <p style="text-align:center;">Click on any disease below to see the details.</p>
       <div id="diseaseGuideContainer"></div>
     </section>
 
@@ -168,7 +168,7 @@
   </footer>
 
   <script>
-    // ====================== FULL ORGAN DATA (including Tumor) ======================
+    // ====================== ORGAN DATA ======================
     const organData = {
       "Brain": {
         clot: { pathology: "Ischemic stroke, Cerebral venous sinus thrombosis", treatment: "Mechanical thrombectomy (acute ischemic stroke)" },
@@ -291,18 +291,20 @@
       selectedOrgan = null;
     }
 
-    // ====================== DISEASE GUIDE WITH PROPER ACCORDION DROPDOWNS ======================
+    // ====================== DISEASE GUIDE WITH PROPER ACCORDION ======================
     function loadDiseaseGuide() {
       const container = document.getElementById('diseaseGuideContainer');
       container.innerHTML = `<p style="text-align:center; color:#64748b;">Loading disease guide...</p>`;
 
       fetch('assets/disease-guide.md')
-        .then(res => res.text())
+        .then(res => {
+          if (!res.ok) throw new Error("File not found");
+          return res.text();
+        })
         .then(markdown => {
-          const html = marked.parse(markdown);
-          container.innerHTML = html;
+          container.innerHTML = marked.parse(markdown);
 
-          // Convert each disease heading into a beautiful accordion
+          // Convert every h2 into a beautiful accordion dropdown
           const headings = container.querySelectorAll('h2');
           headings.forEach(h2 => {
             const details = document.createElement('details');
@@ -321,17 +323,18 @@
           });
         })
         .catch(() => {
-          container.innerHTML = `<p style="color:#ef4444;">Could not load the disease guide. Please make sure assets/disease-guide.md exists.</p>`;
+          container.innerHTML = `<p style="color:#ef4444;">Could not load the disease guide. Please check that <strong>assets/disease-guide.md</strong> exists in the correct folder.</p>`;
         });
     }
 
-    // Optional: Auto load disease guide when user clicks the nav link
-    document.querySelector('a[href="#disease-explore"]').addEventListener('click', () => {
+    // Auto-load disease guide when clicking the nav link
+    document.querySelector('a[href="#disease-explore"]').addEventListener('click', function() {
       setTimeout(() => {
-        if (!document.getElementById('diseaseGuideContainer').innerHTML.trim()) {
+        const container = document.getElementById('diseaseGuideContainer');
+        if (!container.innerHTML.trim() || container.innerHTML.includes('Loading')) {
           loadDiseaseGuide();
         }
-      }, 300);
+      }, 400);
     });
   </script>
 </body>
