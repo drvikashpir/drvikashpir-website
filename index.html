@@ -4,45 +4,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IR for the Public | Interventional Radiology Explained</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  
   <style>
     :root {
-      --primary: #0066ff;
-      --accent: #ff6b6b;
-      --gradient: linear-gradient(135deg, #0066ff, #00d4ff);
-      --gradient2: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+      --primary: #0f172a;
+      --accent: #14b8a6;
+      --accent2: #6366f1;
+      --gradient: linear-gradient(135deg, #0f172a, #1e3a8a);
+      --gradient-accent: linear-gradient(135deg, #14b8a6, #6366f1);
     }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #f8f9fa; color: #333; }
-    .site-header { background: white; box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-    .logo { font-weight: 800; font-size: 1.9rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    nav a { margin-left: 1.5rem; text-decoration: none; color: #333; font-weight: 600; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #f8fafc; color: #1e2937; margin: 0; }
+    .site-header { background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .logo { font-weight: 800; font-size: 1.9rem; background: var(--gradient-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    nav a { margin-left: 1.8rem; text-decoration: none; color: #334155; font-weight: 600; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
     
-    .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 5rem 2rem; display: flex; align-items: center; gap: 3rem; min-height: 100vh; }
-    .primary-button { background: var(--gradient); color: white; padding: 16px 36px; border: none; border-radius: 50px; font-weight: 700; font-size: 1.05rem; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; box-shadow: 0 8px 25px rgba(0, 102, 255, 0.3); }
-    .primary-button:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(0, 102, 255, 0.4); }
+    .hero { background: var(--gradient); color: white; padding: 5rem 2rem; display: flex; align-items: center; gap: 3rem; min-height: 100vh; }
+    .hero-text h1 { font-size: 3.3rem; line-height: 1.1; margin-bottom: 1rem; }
+    
+    .primary-button { background: var(--gradient-accent); color: white; padding: 16px 36px; border: none; border-radius: 50px; font-weight: 700; font-size: 1.05rem; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; box-shadow: 0 10px 25px rgba(20, 184, 166, 0.35); }
+    .primary-button:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(20, 184, 166, 0.5); }
     .secondary-button { background: transparent; color: white; padding: 16px 36px; border: 2px solid white; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; text-decoration: none; display: inline-block; }
-    .secondary-button:hover { background: white; color: #1a1a2e; }
-
-    .procedure-card { background: white; border-radius: 20px; padding: 2rem; margin: 1.5rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
-    .procedure-card:hover { transform: translateY(-8px); }
+    .secondary-button:hover { background: white; color: #0f172a; }
     
     .button-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
-    .button-grid button { background: var(--gradient); color: white; border: none; padding: 14px 24px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+    .button-grid button { background: var(--gradient-accent); color: white; border: none; padding: 14px 24px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(20, 184, 166, 0.3); }
     .button-grid button:hover { transform: translateY(-3px) scale(1.03); }
     
-    .condition-buttons button { background: var(--gradient2); }
+    .condition-buttons button { background: linear-gradient(135deg, #6366f1, #14b8a6); }
     
-    #contact { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 5rem 2rem; text-align: center; }
-    .contact-card { max-width: 520px; margin: 2rem auto; background: rgba(255,255,255,0.08); padding: 2.5rem; border-radius: 20px; }
+    .procedure-card { background: white; border-radius: 20px; padding: 2rem; margin: 1.2rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s ease; border: 1px solid #e2e8f0; }
+    .procedure-card:hover { transform: translateY(-6px); }
+    
+    .info-card { background: #f1e7ff; padding: 1.5rem; border-radius: 16px; margin: 1rem 0; border-left: 6px solid #6366f1; }
+    
+    .hidden { display: none !important; }
+    
+    #contact { background: var(--gradient); color: white; padding: 5rem 2rem; text-align: center; }
+    .contact-card { max-width: 520px; margin: 2rem auto; background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 24px; backdrop-filter: blur(10px); }
     .funny-note { font-style: italic; margin-top: 1.5rem; opacity: 0.9; }
     
-    .hidden { display: none; }
-    .info-card { background: #f8f9fa; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; border-left: 5px solid #0066ff; }
-    .info-card h4 { margin: 0 0 0.5rem 0; color: #0066ff; }
+    /* Accordion styles for Disease Guide */
+    details { background: white; border-radius: 16px; margin: 1rem 0; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
+    details summary { padding: 1.25rem 1.75rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; }
+    details summary::after { content: "▼"; font-size: 0.9rem; transition: transform 0.3s; }
+    details[open] summary::after { transform: rotate(180deg); }
+    details p, details ul { padding: 0 1.75rem 1.75rem; margin: 0; }
   </style>
 </head>
 <body>
@@ -53,7 +62,8 @@
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About IR</a>
-      <a href="#choose-path">Explore</a>
+      <a href="#explore">Explore by Organ</a>
+      <a href="#disease-explore">Explore by Disease</a>
       <a href="#contact">Contact</a>
       <a href="#disclaimer">Disclaimer</a>
     </nav>
@@ -66,37 +76,20 @@
       <div class="hero-text">
         <p class="hero-badge">Minimally Invasive • Image-Guided • Precision Medicine</p>
         <h1>Welcome to Interventional Radiology</h1>
-        <p>Interventional Radiology uses medical imaging to guide tiny instruments for precise, minimally invasive treatments.</p>
-        <div class="hero-actions">
-          <a href="#choose-path" class="primary-button">Start Exploring</a>
-          <a href="#about" class="secondary-button">What is IR?</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Explore Options -->
-    <section id="choose-path" class="info-section">
-      <h2>How would you like to explore?</h2>
-      <div class="quick-cards" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem;">
-        <div class="procedure-card explore-choice-card">
-          <h3>Explore by Organ</h3>
-          <p>Select a body organ and discover what Interventional Radiology can offer for Bleeding or Blood Clot conditions.</p>
+        <p>Discover how IR uses advanced imaging to treat bleeding, blood clots, and tumors through tiny openings.</p>
+        <div class="hero-actions" style="margin-top:2rem;">
           <a href="#explore" class="primary-button">Explore by Organ</a>
-        </div>
-        <div class="procedure-card explore-choice-card">
-          <h3>Explore by Disease</h3>
-          <p>Read detailed information about specific diseases and IR treatments.</p>
-          <button onclick="loadDiseaseGuide()" class="secondary-button">Load Disease Guide</button>
+          <a href="#disease-explore" class="secondary-button">Explore by Disease</a>
         </div>
       </div>
     </section>
 
-    <!-- Explore by Organ Section -->
-    <section id="explore" class="explore-section">
-      <h2>Explore by Organ</h2>
-      <p><strong>Please select a body organ:</strong></p>
-      
-      <div class="button-grid" id="organButtons">
+    <!-- Explore by Organ -->
+    <section id="explore" class="explore-section" style="padding:4rem 2rem; max-width:1200px; margin:0 auto;">
+      <h2 style="text-align:center; font-size:2.4rem;">Explore by Organ</h2>
+      <p style="text-align:center; max-width:700px; margin:1rem auto 2rem;">Please select a body organ to see what Interventional Radiology can offer.</p>
+
+      <div class="button-grid">
         <button onclick="selectOrgan('Brain')">Brain</button>
         <button onclick="selectOrgan('Eyes')">Eyes</button>
         <button onclick="selectOrgan('Throat/Neck')">Throat / Neck</button>
@@ -110,39 +103,42 @@
         <button onclick="selectOrgan('Spleen')">Spleen</button>
         <button onclick="selectOrgan('Limbs')">Limbs (Arms/Legs)</button>
         <button onclick="selectOrgan('Spine')">Spine</button>
-        <button onclick="selectOrgan('Blood Vessels')">Blood Vessels (General)</button>
-        <button onclick="selectOrgan('Skin')">Skin</button>
+        <button onclick="selectOrgan('Thyroid')">Thyroid</button>
+        <button onclick="selectOrgan('Uterus')">Uterus</button>
+        <button onclick="selectOrgan('Prostate')">Prostate</button>
       </div>
 
       <!-- Condition Selection -->
-      <div id="conditionSection" class="hidden">
-        <h2>What would you like to learn about?</h2>
-        <p style="color:#666;">Please choose only one option:</p>
-        <div class="button-grid condition-buttons">
+      <div id="conditionSection" class="hidden" style="margin-top:2rem; text-align:center;">
+        <h3>What would you like to learn about?</h3>
+        <div class="button-grid condition-buttons" style="max-width:600px; margin:1.5rem auto;">
           <button onclick="selectCondition('clot')">Blood Clot</button>
           <button onclick="selectCondition('bleeding')">Bleeding</button>
+          <button onclick="selectCondition('tumor')">Tumor</button>
         </div>
       </div>
 
       <!-- Results -->
       <div id="resultsSection" class="hidden">
-        <h2 id="resultsTitle"></h2>
+        <h2 id="resultsTitle" style="text-align:center;"></h2>
         <div id="resultsContainer"></div>
-        <button onclick="resetExplorer()" class="secondary-button" style="margin-top:2rem;">← Choose Another Organ</button>
+        <div style="text-align:center; margin-top:2rem;">
+          <button onclick="resetExplorer()" class="secondary-button">← Choose Another Organ</button>
+        </div>
       </div>
     </section>
 
-    <!-- Disease Guide -->
-    <section id="disease-explore" class="explore-section">
-      <h2>Explore by Disease</h2>
-      <button onclick="loadDiseaseGuide()" class="primary-button">Load Full Disease Guide</button>
-      <div id="diseaseGuideContainer" class="markdown-container"></div>
+    <!-- Explore by Disease (Accordion Dropdowns) -->
+    <section id="disease-explore" class="explore-section" style="padding:4rem 2rem; max-width:1100px; margin:0 auto;">
+      <h2 style="text-align:center;">Explore by Disease</h2>
+      <p style="text-align:center;">Click on any disease to expand the details.</p>
+      <div id="diseaseGuideContainer"></div>
     </section>
 
     <!-- About IR -->
-    <section id="about" class="info-section">
+    <section id="about" class="info-section" style="padding:4rem 2rem; max-width:900px; margin:0 auto;">
       <h2>What is Interventional Radiology?</h2>
-      <p>IR uses imaging guidance to perform minimally invasive procedures through tiny openings or blood vessels.</p>
+      <p>IR uses real-time imaging (X-ray, CT, Ultrasound) to guide tiny instruments through blood vessels or small skin openings for precise, minimally invasive treatments.</p>
     </section>
 
     <!-- Contact -->
@@ -151,7 +147,7 @@
       <p>Have questions about Interventional Radiology?</p>
       <div class="contact-card">
         <h3>📧 Email Us</h3>
-        <a href="mailto:hidoc@drvikashpir.com" style="font-size:1.4rem; font-weight:700; color:#00d4ff; text-decoration:none;">
+        <a href="mailto:hidoc@drvikashpir.com" style="font-size:1.5rem; font-weight:700; color:#14b8a6; text-decoration:none;">
           hidoc@drvikashpir.com
         </a>
         <p class="funny-note">We promise we read every email — even the ones with accidental cat photos 🐱</p>
@@ -159,79 +155,99 @@
     </section>
 
     <!-- Disclaimer -->
-    <section id="disclaimer" class="disclaimer">
+    <section id="disclaimer" class="disclaimer" style="padding:3rem 2rem; text-align:center; background:#f1e7ff;">
       <h2>Medical Disclaimer</h2>
       <p>This website is for public education only. It does not provide medical advice.</p>
     </section>
 
   </main>
 
-  <footer style="text-align:center; padding:2rem; background:#f1f1f1;">
+  <footer style="text-align:center; padding:2rem; background:#e0e7ff;">
     <p>© 2026 IR for the Public — Educational information only.</p>
   </footer>
 
   <script>
-    // ====================== ORGAN DATA ======================
+    // ====================== ORGAN DATA (Updated with Tumor) ======================
     const organData = {
       "Brain": {
         clot: { pathology: "Ischemic stroke, Cerebral venous sinus thrombosis", treatment: "Mechanical thrombectomy (acute ischemic stroke)" },
-        bleeding: { pathology: "Hemorrhagic stroke, Intracerebral hemorrhage, Subdural hematoma", treatment: "Endovascular embolization (for arteriovenous malformations causing hemorrhage)" }
+        bleeding: { pathology: "Hemorrhagic stroke, Intracerebral hemorrhage, Subdural hematoma", treatment: "Endovascular embolization (for arteriovenous malformations causing hemorrhage)" },
+        tumor: { pathology: "Glioblastoma, Meningioma, Brain metastases", treatment: "Endovascular embolization (preoperative), Intra-arterial chemotherapy" }
       },
       "Eyes": {
         clot: { pathology: "Retinal artery thrombosis", treatment: "No IR role at the moment" },
-        bleeding: { pathology: "Retinal hemorrhage, Hyphema", treatment: "No IR role at the moment" }
+        bleeding: { pathology: "Retinal hemorrhage, Hyphema", treatment: "No IR role at the moment" },
+        tumor: { pathology: "Uveal melanoma, Retinoblastoma", treatment: "No IR role at the moment" }
       },
       "Throat/Neck": {
         clot: { pathology: "Carotid artery thrombosis", treatment: "Mechanical thrombectomy (acute stroke)" },
-        bleeding: { pathology: "Hemorrhage, Epistaxis", treatment: "Selective arterial embolization (for epistaxis)" }
+        bleeding: { pathology: "Hemorrhage, Epistaxis", treatment: "Selective arterial embolization (for epistaxis)" },
+        tumor: { pathology: "Laryngeal cancer", treatment: "Selective arterial embolization (preoperative)" }
       },
       "Heart": {
         clot: { pathology: "Myocardial infarction, Atrial thrombus", treatment: "Percutaneous coronary intervention (PCI)" },
-        bleeding: { pathology: "Myocardial rupture, Pericardial hemorrhage", treatment: "No IR role at the moment" }
+        bleeding: { pathology: "Myocardial rupture, Pericardial hemorrhage", treatment: "No IR role at the moment" },
+        tumor: { pathology: "Cardiac sarcoma, Angiosarcoma", treatment: "No IR role at the moment" }
       },
       "Lungs": {
         clot: { pathology: "Pulmonary embolism", treatment: "Catheter-directed thrombolysis (massive PE with hemodynamic instability)" },
-        bleeding: { pathology: "Pulmonary hemorrhage, Hemoptysis", treatment: "Selective bronchial artery embolization (for hemoptysis)" }
+        bleeding: { pathology: "Pulmonary hemorrhage, Hemoptysis", treatment: "Selective bronchial artery embolization (for hemoptysis)" },
+        tumor: { pathology: "Lung cancer, Bronchial adenoma", treatment: "Selective bronchial artery embolization (for hemoptysis from tumor), Transbronchial biopsy guidance" }
       },
       "Stomach": {
         clot: { pathology: "Portal vein thrombosis", treatment: "TIPS (for portal vein thrombosis with portal hypertension)" },
-        bleeding: { pathology: "Gastric ulcer bleeding, Upper GI hemorrhage", treatment: "Selective gastric/left gastric artery embolization (for refractory bleeding)" }
+        bleeding: { pathology: "Gastric ulcer bleeding, Upper GI hemorrhage", treatment: "Selective gastric/left gastric artery embolization (for refractory bleeding)" },
+        tumor: { pathology: "Gastric cancer, Gastric lymphoma", treatment: "Selective gastric artery embolization (preoperative), Palliative embolization" }
       },
       "Liver": {
         clot: { pathology: "Hepatic vein thrombosis, Budd-Chiari syndrome", treatment: "TIPS procedure" },
-        bleeding: { pathology: "Esophageal varices bleeding, Hepatic hemorrhage", treatment: "TIPS (for variceal bleeding), Selective hepatic artery embolization" }
+        bleeding: { pathology: "Esophageal varices bleeding, Hepatic hemorrhage", treatment: "TIPS (for variceal bleeding), Selective hepatic artery embolization" },
+        tumor: { pathology: "Hepatocellular carcinoma (HCC), Cholangiocarcinoma, Hepatic metastases", treatment: "Transarterial chemoembolization (TACE), Transarterial radioembolization (TARE), Selective hepatic artery embolization" }
       },
       "Kidneys": {
         clot: { pathology: "Renal artery thrombosis", treatment: "No IR role at the moment" },
-        bleeding: { pathology: "Renal hemorrhage, Hematuria", treatment: "Selective renal artery embolization (for refractory hemorrhage)" }
+        bleeding: { pathology: "Renal hemorrhage, Hematuria", treatment: "Selective renal artery embolization (for refractory hemorrhage)" },
+        tumor: { pathology: "Renal cell carcinoma, Wilms tumor", treatment: "Selective renal artery embolization (preoperative), Transarterial embolization" }
       },
       "Pancreas": {
         clot: { pathology: "Splenic vein thrombosis", treatment: "No IR role at the moment" },
-        bleeding: { pathology: "Pancreatic hemorrhage", treatment: "Selective embolization (splenic/gastroduodenal artery for refractory hemorrhage)" }
+        bleeding: { pathology: "Pancreatic hemorrhage", treatment: "Selective embolization (splenic/gastroduodenal artery for refractory hemorrhage)" },
+        tumor: { pathology: "Pancreatic cancer, Pancreatic neuroendocrine tumor", treatment: "Selective arterial embolization (preoperative), Palliative embolization" }
       },
       "Intestines": {
         clot: { pathology: "Mesenteric artery thrombosis", treatment: "Catheter-directed thrombolysis (acute mesenteric ischemia)" },
-        bleeding: { pathology: "Lower GI hemorrhage, Diverticular bleeding", treatment: "Selective mesenteric artery embolization (for refractory bleeding)" }
+        bleeding: { pathology: "Lower GI hemorrhage, Diverticular bleeding", treatment: "Selective mesenteric artery embolization (for refractory bleeding)" },
+        tumor: { pathology: "Colon cancer, Small bowel lymphoma, Intestinal adenocarcinoma", treatment: "Selective mesenteric artery embolization (preoperative), Palliative embolization" }
       },
       "Spleen": {
         clot: { pathology: "Splenic artery thrombosis", treatment: "No IR role at the moment" },
-        bleeding: { pathology: "Splenic rupture with hemorrhage", treatment: "Selective splenic artery embolization" }
+        bleeding: { pathology: "Splenic rupture with hemorrhage", treatment: "Selective splenic artery embolization" },
+        tumor: { pathology: "Splenic lymphoma, Splenic hemangioma", treatment: "Selective splenic artery embolization" }
       },
       "Limbs": {
-        clot: { pathology: "Deep vein thrombosis (DVT), Arterial thrombosis", treatment: "Catheter-directed thrombolysis, Mechanical thrombectomy" },
-        bleeding: { pathology: "Arterial bleeding, Hematomas", treatment: "Selective arterial embolization, Pseudoaneurysm embolization" }
+        clot: { pathology: "Deep vein thrombosis (DVT), Arterial thrombosis", treatment: "Catheter-directed thrombolysis (acute DVT/arterial thrombosis), Mechanical thrombectomy" },
+        bleeding: { pathology: "Arterial bleeding, Hematomas", treatment: "Selective arterial embolization, Pseudoaneurysm embolization" },
+        tumor: { pathology: "Soft tissue sarcoma, Bone sarcoma, Melanoma", treatment: "Selective arterial embolization (preoperative), Palliative embolization" }
       },
       "Spine": {
         clot: { pathology: "Epidural vein thrombosis", treatment: "No IR role at the moment" },
-        bleeding: { pathology: "Epidural hematoma, Spinal hemorrhage", treatment: "Selective embolization (for spinal arteriovenous malformations)" }
+        bleeding: { pathology: "Epidural hematoma, Spinal hemorrhage", treatment: "Selective embolization (for spinal arteriovenous malformations causing hemorrhage)" },
+        tumor: { pathology: "Spinal cord tumor, Vertebral metastases, Hemangioblastoma", treatment: "Selective spinal artery embolization (preoperative for vascular tumors), Vertebral body embolization" }
       },
-      "Blood Vessels": {
-        clot: { pathology: "Thrombophlebitis, Arterial thrombosis", treatment: "Mechanical thrombectomy, Catheter-directed thrombolysis" },
-        bleeding: { pathology: "Aneurysm rupture, Vascular hemorrhage", treatment: "Endovascular embolization, Stent grafts (for aneurysms)" }
+      "Thyroid": {
+        clot: { pathology: "Thyroid vein thrombosis", treatment: "No IR role at the moment" },
+        bleeding: { pathology: "Thyroid hemorrhage", treatment: "Selective thyroid artery embolization (for refractory hemorrhage)" },
+        tumor: { pathology: "Thyroid nodule, Goiter", treatment: "Thyroid nodule ablation (radiofrequency, microwave), Selective thyroid artery embolization (for goiter with hyperthyroidism)" }
       },
-      "Skin": {
-        clot: { pathology: "Thrombophlebitis", treatment: "No IR role at the moment" },
-        bleeding: { pathology: "Ecchymosis, Petechiae, Purpura", treatment: "No IR role at the moment" }
+      "Uterus": {
+        clot: { pathology: "Uterine vein thrombosis", treatment: "No IR role at the moment" },
+        bleeding: { pathology: "Uterine hemorrhage, Postpartum hemorrhage", treatment: "Selective uterine artery embolization (for refractory hemorrhage)" },
+        tumor: { pathology: "Uterine fibroid, Adenomyosis", treatment: "Uterine artery embolization (for fibroid-related bleeding and symptoms), Selective ablation for adenomyosis" }
+      },
+      "Prostate": {
+        clot: { pathology: "No IR role at the moment", treatment: "No IR role at the moment" },
+        bleeding: { pathology: "No IR role at the moment", treatment: "No IR role at the moment" },
+        tumor: { pathology: "Benign prostatic hyperplasia (BPH)", treatment: "Prostate artery embolization (for BPH with lower urinary tract symptoms)" }
       }
     };
 
@@ -241,21 +257,21 @@
       selectedOrgan = organ;
       document.getElementById('conditionSection').classList.remove('hidden');
       document.getElementById('resultsSection').classList.add('hidden');
+      document.getElementById('conditionSection').scrollIntoView({ behavior: 'smooth' });
     }
 
     function selectCondition(type) {
       if (!selectedOrgan) return;
-      
       const data = organData[selectedOrgan][type];
       const resultsSection = document.getElementById('resultsSection');
       const resultsContainer = document.getElementById('resultsContainer');
       const title = document.getElementById('resultsTitle');
 
-      title.textContent = `${selectedOrgan} – ${type === 'clot' ? 'Blood Clot' : 'Bleeding'}`;
+      title.textContent = `${selectedOrgan} – ${type === 'clot' ? 'Blood Clot' : type === 'bleeding' ? 'Bleeding' : 'Tumor'}`;
 
       resultsContainer.innerHTML = `
         <div class="procedure-card">
-          <h3>${type === 'clot' ? 'Blood Clot Pathologies' : 'Bleeding Pathologies'}</h3>
+          <h3>${type === 'clot' ? 'Blood Clot Pathologies' : type === 'bleeding' ? 'Bleeding Pathologies' : 'Tumor Pathologies'}</h3>
           <p>${data.pathology}</p>
         </div>
         <div class="procedure-card">
@@ -263,7 +279,6 @@
           <p>${data.treatment}</p>
         </div>
       `;
-
       resultsSection.classList.remove('hidden');
       document.getElementById('conditionSection').classList.add('hidden');
     }
@@ -274,19 +289,42 @@
       selectedOrgan = null;
     }
 
+    // ====================== DISEASE GUIDE WITH ACCORDION ======================
     function loadDiseaseGuide() {
       const container = document.getElementById('diseaseGuideContainer');
-      container.innerHTML = `<div class="loading"><p>Loading disease guide...</p></div>`;
+      container.innerHTML = `<p style="text-align:center; color:#64748b;">Loading disease guide...</p>`;
 
       fetch('assets/disease-guide.md')
         .then(res => res.text())
-        .then(md => {
-          container.innerHTML = marked.parse(md);
+        .then(markdown => {
+          const html = marked.parse(markdown);
+          container.innerHTML = html;
+
+          // Convert headings into accordions
+          const headings = container.querySelectorAll('h2');
+          headings.forEach(h2 => {
+            const details = document.createElement('details');
+            const summary = document.createElement('summary');
+            summary.innerHTML = h2.innerHTML;
+            details.appendChild(summary);
+
+            let next = h2.nextElementSibling;
+            const content = [];
+            while (next && !next.tagName.startsWith('H')) {
+              content.push(next);
+              next = next.nextElementSibling;
+            }
+            content.forEach(el => details.appendChild(el));
+            h2.replaceWith(details);
+          });
         })
         .catch(() => {
-          container.innerHTML = `<p style="color:red;">Could not load disease guide. Please check assets/disease-guide.md</p>`;
+          container.innerHTML = `<p style="color:#ef4444;">Could not load the disease guide. Please make sure assets/disease-guide.md exists.</p>`;
         });
     }
+
+    // Auto-load disease guide on page load (optional)
+    // window.onload = () => loadDiseaseGuide();
   </script>
 </body>
 </html>
