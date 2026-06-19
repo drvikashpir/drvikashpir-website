@@ -1,45 +1,192 @@
-/* ====================== NEW STYLES ====================== */
+/* ====================== MODERN & COLORFUL STYLES ====================== */
 
-/* Selected button highlight (for organ & condition buttons) */
-button.selected {
-  background-color: #0066cc;
+:root {
+  --primary: #0066ff;
+  --primary-dark: #0044cc;
+  --accent: #ff6b6b;
+  --accent2: #00d4ff;
+  --gradient: linear-gradient(135deg, #0066ff, #00d4ff);
+  --gradient2: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  --dark: #1a1a2e;
+  --light: #f8f9fa;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+.site-header {
+  background: white;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.8rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hero Section with Gradient */
+.hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   color: white;
-  border-color: #004999;
-  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.3);
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  min-height: 100vh;
 }
 
-/* Loading state for disease guide */
-.loading {
-  padding: 2rem;
-  text-align: center;
-  color: #555;
-  font-style: italic;
+.hero-text h1 {
+  font-size: 3.2rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
 }
 
-/* Error message styling */
-.error-message {
-  background-color: #fff3cd;
-  border: 1px solid #ffc107;
-  padding: 1.5rem;
-  border-radius: 8px;
-  text-align: center;
-  margin: 1rem 0;
+.hero-badge {
+  background: rgba(255,255,255,0.15);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 
-/* Back button in results section */
-.back-button {
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
+/* Attractive Buttons */
+.primary-button {
+  background: var(--gradient);
+  color: white;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 8px 25px rgba(0, 102, 255, 0.3);
+}
+
+.primary-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0, 102, 255, 0.4);
+}
+
+.secondary-button {
+  background: transparent;
+  color: white;
+  padding: 14px 32px;
+  border: 2px solid white;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
   display: inline-block;
 }
 
-/* Optional: nicer styling for the disease guide container after loading */
-.markdown-container h2 {
-  margin-top: 2rem;
-  color: #003366;
+.secondary-button:hover {
+  background: white;
+  color: #1a1a2e;
 }
 
-.markdown-container h3 {
+/* Procedure Cards with Color */
+.procedure-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.procedure-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* Colorful Quick Cards */
+.quick-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.explore-choice-card {
+  background: linear-gradient(135deg, #f0f4ff, #e0ebff);
+  border-left: 6px solid var(--primary);
+}
+
+.explore-choice-card:nth-child(2) {
+  background: linear-gradient(135deg, #fff0f0, #ffe0e0);
+  border-left-color: var(--accent);
+}
+
+/* Attractive Buttons Grid */
+.button-grid button {
+  background: var(--gradient);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.25);
+}
+
+.button-grid button:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 102, 255, 0.35);
+}
+
+/* Condition Buttons */
+.condition-buttons button {
+  background: var(--gradient2);
+}
+
+/* Contact Section */
+#contact {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.contact-card {
+  max-width: 500px;
+  margin: 2rem auto;
+  background: rgba(255,255,255,0.08);
+  padding: 2.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.funny-note {
+  font-style: italic;
   margin-top: 1.5rem;
-  color: #004080;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
 }
