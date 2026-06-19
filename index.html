@@ -3,195 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A public education website explaining how Interventional Radiology can help treat bleeding, blood clots, and tumors using minimally invasive image-guided procedures." />
   <title>IR for the Public | Interventional Radiology Explained</title>
-  
-  <!-- External CSS -->
   <link rel="stylesheet" href="style.css" />
-  
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- 3D model viewer -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
-  
-  <!-- Markdown viewer -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   
   <style>
-    /* ====================== COLORFUL MODERN STYLES ====================== */
     :root {
       --primary: #0066ff;
       --accent: #ff6b6b;
       --gradient: linear-gradient(135deg, #0066ff, #00d4ff);
       --gradient2: linear-gradient(135deg, #ff6b6b, #ff8e8e);
     }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #f8f9fa; color: #333; }
+    .site-header { background: white; box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .logo { font-weight: 800; font-size: 1.9rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    nav a { margin-left: 1.5rem; text-decoration: none; color: #333; font-weight: 600; }
+    
+    .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 5rem 2rem; display: flex; align-items: center; gap: 3rem; min-height: 100vh; }
+    .primary-button { background: var(--gradient); color: white; padding: 16px 36px; border: none; border-radius: 50px; font-weight: 700; font-size: 1.05rem; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; box-shadow: 0 8px 25px rgba(0, 102, 255, 0.3); }
+    .primary-button:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(0, 102, 255, 0.4); }
+    .secondary-button { background: transparent; color: white; padding: 16px 36px; border: 2px solid white; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; text-decoration: none; display: inline-block; }
+    .secondary-button:hover { background: white; color: #1a1a2e; }
 
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: #f8f9fa;
-      color: #333;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .site-header {
-      background: white;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .logo {
-      font-weight: 800;
-      font-size: 1.9rem;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-      color: white;
-      padding: 5rem 2rem;
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-      min-height: 100vh;
-    }
-
-    .hero-text h1 {
-      font-size: 3.4rem;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-
-    .hero-badge {
-      background: rgba(255,255,255,0.15);
-      padding: 0.5rem 1.2rem;
-      border-radius: 50px;
-      display: inline-block;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-
-    /* Attractive Buttons */
-    .primary-button {
-      background: var(--gradient);
-      color: white;
-      padding: 16px 36px;
-      border: none;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 1.05rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      box-shadow: 0 8px 25px rgba(0, 102, 255, 0.3);
-    }
-    .primary-button:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(0, 102, 255, 0.4);
-    }
-
-    .secondary-button {
-      background: transparent;
-      color: white;
-      padding: 16px 36px;
-      border: 2px solid white;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .secondary-button:hover {
-      background: white;
-      color: #1a1a2e;
-    }
-
-    .procedure-card {
-      background: white;
-      border-radius: 20px;
-      padding: 2rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
-      border: 1px solid #eee;
-    }
-    .procedure-card:hover {
-      transform: translateY(-8px);
-    }
-
-    .quick-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .explore-choice-card {
-      background: linear-gradient(135deg, #f0f4ff, #e0ebff);
-      border-left: 6px solid var(--primary);
-    }
-    .explore-choice-card:nth-child(2) {
-      background: linear-gradient(135deg, #fff0f0, #ffe0e0);
-      border-left-color: var(--accent);
-    }
-
-    .button-grid button {
-      background: var(--gradient);
-      color: white;
-      border: none;
-      padding: 14px 28px;
-      border-radius: 50px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 6px 20px rgba(0, 102, 255, 0.25);
-    }
-    .button-grid button:hover {
-      transform: translateY(-4px) scale(1.03);
-    }
-
-    .condition-buttons button {
-      background: var(--gradient2);
-    }
-
-    /* Contact Section */
-    #contact {
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      color: white;
-      padding: 5rem 2rem;
-      text-align: center;
-    }
-    .contact-card {
-      max-width: 520px;
-      margin: 2rem auto;
-      background: rgba(255,255,255,0.08);
-      padding: 2.5rem;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-    }
-    .funny-note {
-      font-style: italic;
-      margin-top: 1.5rem;
-      opacity: 0.9;
-    }
-
+    .procedure-card { background: white; border-radius: 20px; padding: 2rem; margin: 1.5rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
+    .procedure-card:hover { transform: translateY(-8px); }
+    
+    .button-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .button-grid button { background: var(--gradient); color: white; border: none; padding: 14px 24px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+    .button-grid button:hover { transform: translateY(-3px) scale(1.03); }
+    
+    .condition-buttons button { background: var(--gradient2); }
+    
+    #contact { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 5rem 2rem; text-align: center; }
+    .contact-card { max-width: 520px; margin: 2rem auto; background: rgba(255,255,255,0.08); padding: 2.5rem; border-radius: 20px; }
+    .funny-note { font-style: italic; margin-top: 1.5rem; opacity: 0.9; }
+    
     .hidden { display: none; }
+    .info-card { background: #f8f9fa; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; border-left: 5px solid #0066ff; }
+    .info-card h4 { margin: 0 0 0.5rem 0; color: #0066ff; }
   </style>
 </head>
 <body>
@@ -210,79 +61,74 @@
 
   <main>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
       <div class="hero-text">
         <p class="hero-badge">Minimally Invasive • Image-Guided • Precision Medicine</p>
         <h1>Welcome to Interventional Radiology</h1>
-        <p class="tagline">The most advanced branch of medicine driven by biology, physics, imaging, and innovation.</p>
-        <p class="intro">Interventional Radiology (IR) uses medical imaging to guide tiny instruments through blood vessels or small openings to diagnose and treat conditions without traditional open surgery.</p>
-        <p class="intro">Select a body organ below to learn how IR may help with <strong>bleeding</strong>, <strong>blood clots</strong>, or <strong>tumors</strong>.</p>
-        
+        <p>Interventional Radiology uses medical imaging to guide tiny instruments for precise, minimally invasive treatments.</p>
         <div class="hero-actions">
           <a href="#choose-path" class="primary-button">Start Exploring</a>
           <a href="#about" class="secondary-button">What is IR?</a>
         </div>
-      </div>
-
-      <!-- 3D Model -->
-      <div class="hero-3d">
-        <model-viewer id="bodyModel" src="assets/human-body.glb" alt="Interactive 3D human body model" camera-controls auto-rotate shadow-intensity="1" exposure="1" touch-action="pan-y">
-          <button class="hotspot" slot="hotspot-brain" onclick="selectOrganFromModel('brain')">Brain</button>
-          <button class="hotspot" slot="hotspot-lungs" onclick="selectOrganFromModel('lungs')">Lungs</button>
-          <button class="hotspot" slot="hotspot-liver" onclick="selectOrganFromModel('liver')">Liver</button>
-          <button class="hotspot" slot="hotspot-kidney" onclick="selectOrganFromModel('kidney')">Kidney</button>
-          <button class="hotspot" slot="hotspot-abdomen" onclick="selectOrganFromModel('abdomen')">Abdomen</button>
-          <button class="hotspot" slot="hotspot-uterus" onclick="selectOrganFromModel('uterus')">Pelvis</button>
-          <button class="hotspot" slot="hotspot-legs" onclick="selectOrganFromModel('legs')">Leg Vessels</button>
-          <button class="hotspot" slot="hotspot-bones" onclick="selectOrganFromModel('bones')">Bones</button>
-        </model-viewer>
       </div>
     </section>
 
     <!-- Explore Options -->
     <section id="choose-path" class="info-section">
       <h2>How would you like to explore?</h2>
-      <div class="quick-cards">
+      <div class="quick-cards" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem;">
         <div class="procedure-card explore-choice-card">
           <h3>Explore by Organ</h3>
-          <p>Choose a body organ and learn how IR helps with bleeding, clots, or tumors.</p>
+          <p>Select a body organ and discover what Interventional Radiology can offer for Bleeding or Blood Clot conditions.</p>
           <a href="#explore" class="primary-button">Explore by Organ</a>
         </div>
         <div class="procedure-card explore-choice-card">
           <h3>Explore by Disease</h3>
-          <p>Read detailed disease-specific information about IR treatments.</p>
-          <button onclick="loadDiseaseGuide()" class="secondary-button">Explore by Disease</button>
+          <p>Read detailed information about specific diseases and IR treatments.</p>
+          <button onclick="loadDiseaseGuide()" class="secondary-button">Load Disease Guide</button>
         </div>
       </div>
     </section>
 
-    <!-- Organ-Based Explorer -->
+    <!-- Explore by Organ Section -->
     <section id="explore" class="explore-section">
       <h2>Explore by Organ</h2>
+      <p><strong>Please select a body organ:</strong></p>
+      
       <div class="button-grid" id="organButtons">
-        <button onclick="selectOrgan('brain')">Brain / Head & Neck</button>
-        <button onclick="selectOrgan('lungs')">Lungs</button>
-        <button onclick="selectOrgan('liver')">Liver</button>
-        <button onclick="selectOrgan('kidney')">Kidney</button>
-        <button onclick="selectOrgan('uterus')">Uterus / Pelvis</button>
-        <button onclick="selectOrgan('legs')">Leg Veins / Arteries</button>
-        <button onclick="selectOrgan('abdomen')">GI Tract / Abdomen</button>
-        <button onclick="selectOrgan('bones')">Bones / Spine</button>
+        <button onclick="selectOrgan('Brain')">Brain</button>
+        <button onclick="selectOrgan('Eyes')">Eyes</button>
+        <button onclick="selectOrgan('Throat/Neck')">Throat / Neck</button>
+        <button onclick="selectOrgan('Heart')">Heart</button>
+        <button onclick="selectOrgan('Lungs')">Lungs</button>
+        <button onclick="selectOrgan('Stomach')">Stomach</button>
+        <button onclick="selectOrgan('Liver')">Liver</button>
+        <button onclick="selectOrgan('Kidneys')">Kidneys</button>
+        <button onclick="selectOrgan('Pancreas')">Pancreas</button>
+        <button onclick="selectOrgan('Intestines')">Intestines</button>
+        <button onclick="selectOrgan('Spleen')">Spleen</button>
+        <button onclick="selectOrgan('Limbs')">Limbs (Arms/Legs)</button>
+        <button onclick="selectOrgan('Spine')">Spine</button>
+        <button onclick="selectOrgan('Blood Vessels')">Blood Vessels (General)</button>
+        <button onclick="selectOrgan('Skin')">Skin</button>
       </div>
 
+      <!-- Condition Selection -->
       <div id="conditionSection" class="hidden">
-        <h2>What do you want to learn about?</h2>
+        <h2>What would you like to learn about?</h2>
+        <p style="color:#666;">Please choose only one option:</p>
         <div class="button-grid condition-buttons">
-          <button onclick="selectCondition('bleeding')">Bleeding</button>
           <button onclick="selectCondition('clot')">Blood Clot</button>
-          <button onclick="selectCondition('tumor')">Tumor</button>
+          <button onclick="selectCondition('bleeding')">Bleeding</button>
         </div>
       </div>
 
+      <!-- Results -->
       <div id="resultsSection" class="hidden">
-        <h2 id="resultsTitle">IR Procedures</h2>
+        <h2 id="resultsTitle"></h2>
         <div id="resultsContainer"></div>
+        <button onclick="resetExplorer()" class="secondary-button" style="margin-top:2rem;">← Choose Another Organ</button>
       </div>
     </section>
 
@@ -296,29 +142,26 @@
     <!-- About IR -->
     <section id="about" class="info-section">
       <h2>What is Interventional Radiology?</h2>
-      <p>IR uses imaging (X-ray, CT, Ultrasound, MRI) to guide tiny instruments through blood vessels or small skin openings for precise, minimally invasive treatment.</p>
+      <p>IR uses imaging guidance to perform minimally invasive procedures through tiny openings or blood vessels.</p>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact">
       <h2>Let's Connect</h2>
-      <p style="max-width:600px; margin:0 auto 2rem;">Have questions about Interventional Radiology?<br>We’d love to hear from you!</p>
-
+      <p>Have questions about Interventional Radiology?</p>
       <div class="contact-card">
         <h3>📧 Email Us</h3>
         <a href="mailto:hidoc@drvikashpir.com" style="font-size:1.4rem; font-weight:700; color:#00d4ff; text-decoration:none;">
           hidoc@drvikashpir.com
         </a>
-        <p class="funny-note">
-          We promise we read every email — even the ones with accidental cat photos 🐱
-        </p>
+        <p class="funny-note">We promise we read every email — even the ones with accidental cat photos 🐱</p>
       </div>
     </section>
 
     <!-- Disclaimer -->
     <section id="disclaimer" class="disclaimer">
       <h2>Medical Disclaimer</h2>
-      <p>This website is for public education only. It does not provide medical advice. Please consult a qualified physician for any health concerns.</p>
+      <p>This website is for public education only. It does not provide medical advice.</p>
     </section>
 
   </main>
@@ -327,6 +170,123 @@
     <p>© 2026 IR for the Public — Educational information only.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // ====================== ORGAN DATA ======================
+    const organData = {
+      "Brain": {
+        clot: { pathology: "Ischemic stroke, Cerebral venous sinus thrombosis", treatment: "Mechanical thrombectomy (acute ischemic stroke)" },
+        bleeding: { pathology: "Hemorrhagic stroke, Intracerebral hemorrhage, Subdural hematoma", treatment: "Endovascular embolization (for arteriovenous malformations causing hemorrhage)" }
+      },
+      "Eyes": {
+        clot: { pathology: "Retinal artery thrombosis", treatment: "No IR role at the moment" },
+        bleeding: { pathology: "Retinal hemorrhage, Hyphema", treatment: "No IR role at the moment" }
+      },
+      "Throat/Neck": {
+        clot: { pathology: "Carotid artery thrombosis", treatment: "Mechanical thrombectomy (acute stroke)" },
+        bleeding: { pathology: "Hemorrhage, Epistaxis", treatment: "Selective arterial embolization (for epistaxis)" }
+      },
+      "Heart": {
+        clot: { pathology: "Myocardial infarction, Atrial thrombus", treatment: "Percutaneous coronary intervention (PCI)" },
+        bleeding: { pathology: "Myocardial rupture, Pericardial hemorrhage", treatment: "No IR role at the moment" }
+      },
+      "Lungs": {
+        clot: { pathology: "Pulmonary embolism", treatment: "Catheter-directed thrombolysis (massive PE with hemodynamic instability)" },
+        bleeding: { pathology: "Pulmonary hemorrhage, Hemoptysis", treatment: "Selective bronchial artery embolization (for hemoptysis)" }
+      },
+      "Stomach": {
+        clot: { pathology: "Portal vein thrombosis", treatment: "TIPS (for portal vein thrombosis with portal hypertension)" },
+        bleeding: { pathology: "Gastric ulcer bleeding, Upper GI hemorrhage", treatment: "Selective gastric/left gastric artery embolization (for refractory bleeding)" }
+      },
+      "Liver": {
+        clot: { pathology: "Hepatic vein thrombosis, Budd-Chiari syndrome", treatment: "TIPS procedure" },
+        bleeding: { pathology: "Esophageal varices bleeding, Hepatic hemorrhage", treatment: "TIPS (for variceal bleeding), Selective hepatic artery embolization" }
+      },
+      "Kidneys": {
+        clot: { pathology: "Renal artery thrombosis", treatment: "No IR role at the moment" },
+        bleeding: { pathology: "Renal hemorrhage, Hematuria", treatment: "Selective renal artery embolization (for refractory hemorrhage)" }
+      },
+      "Pancreas": {
+        clot: { pathology: "Splenic vein thrombosis", treatment: "No IR role at the moment" },
+        bleeding: { pathology: "Pancreatic hemorrhage", treatment: "Selective embolization (splenic/gastroduodenal artery for refractory hemorrhage)" }
+      },
+      "Intestines": {
+        clot: { pathology: "Mesenteric artery thrombosis", treatment: "Catheter-directed thrombolysis (acute mesenteric ischemia)" },
+        bleeding: { pathology: "Lower GI hemorrhage, Diverticular bleeding", treatment: "Selective mesenteric artery embolization (for refractory bleeding)" }
+      },
+      "Spleen": {
+        clot: { pathology: "Splenic artery thrombosis", treatment: "No IR role at the moment" },
+        bleeding: { pathology: "Splenic rupture with hemorrhage", treatment: "Selective splenic artery embolization" }
+      },
+      "Limbs": {
+        clot: { pathology: "Deep vein thrombosis (DVT), Arterial thrombosis", treatment: "Catheter-directed thrombolysis, Mechanical thrombectomy" },
+        bleeding: { pathology: "Arterial bleeding, Hematomas", treatment: "Selective arterial embolization, Pseudoaneurysm embolization" }
+      },
+      "Spine": {
+        clot: { pathology: "Epidural vein thrombosis", treatment: "No IR role at the moment" },
+        bleeding: { pathology: "Epidural hematoma, Spinal hemorrhage", treatment: "Selective embolization (for spinal arteriovenous malformations)" }
+      },
+      "Blood Vessels": {
+        clot: { pathology: "Thrombophlebitis, Arterial thrombosis", treatment: "Mechanical thrombectomy, Catheter-directed thrombolysis" },
+        bleeding: { pathology: "Aneurysm rupture, Vascular hemorrhage", treatment: "Endovascular embolization, Stent grafts (for aneurysms)" }
+      },
+      "Skin": {
+        clot: { pathology: "Thrombophlebitis", treatment: "No IR role at the moment" },
+        bleeding: { pathology: "Ecchymosis, Petechiae, Purpura", treatment: "No IR role at the moment" }
+      }
+    };
+
+    let selectedOrgan = null;
+
+    function selectOrgan(organ) {
+      selectedOrgan = organ;
+      document.getElementById('conditionSection').classList.remove('hidden');
+      document.getElementById('resultsSection').classList.add('hidden');
+    }
+
+    function selectCondition(type) {
+      if (!selectedOrgan) return;
+      
+      const data = organData[selectedOrgan][type];
+      const resultsSection = document.getElementById('resultsSection');
+      const resultsContainer = document.getElementById('resultsContainer');
+      const title = document.getElementById('resultsTitle');
+
+      title.textContent = `${selectedOrgan} – ${type === 'clot' ? 'Blood Clot' : 'Bleeding'}`;
+
+      resultsContainer.innerHTML = `
+        <div class="procedure-card">
+          <h3>${type === 'clot' ? 'Blood Clot Pathologies' : 'Bleeding Pathologies'}</h3>
+          <p>${data.pathology}</p>
+        </div>
+        <div class="procedure-card">
+          <h3>IR Treatment Options</h3>
+          <p>${data.treatment}</p>
+        </div>
+      `;
+
+      resultsSection.classList.remove('hidden');
+      document.getElementById('conditionSection').classList.add('hidden');
+    }
+
+    function resetExplorer() {
+      document.getElementById('resultsSection').classList.add('hidden');
+      document.getElementById('conditionSection').classList.add('hidden');
+      selectedOrgan = null;
+    }
+
+    function loadDiseaseGuide() {
+      const container = document.getElementById('diseaseGuideContainer');
+      container.innerHTML = `<div class="loading"><p>Loading disease guide...</p></div>`;
+
+      fetch('assets/disease-guide.md')
+        .then(res => res.text())
+        .then(md => {
+          container.innerHTML = marked.parse(md);
+        })
+        .catch(() => {
+          container.innerHTML = `<p style="color:red;">Could not load disease guide. Please check assets/disease-guide.md</p>`;
+        });
+    }
+  </script>
 </body>
 </html>
